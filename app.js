@@ -43,7 +43,7 @@ document.getElementById('grocery-form').addEventListener('submit', function(e){
   // local variables
   const groceryItem = document.getElementById('grocery-item').value,
         quantity = document.getElementById('quantity').value,
-        perishable = document.getElementById('perishable');
+        perishable = document.getElementById('perishable').value;
 
   // instantiate grocery item
   const grocery = new Grocery(groceryItem, quantity, perishable);
