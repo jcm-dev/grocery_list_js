@@ -10,7 +10,18 @@ class Grocery {
 // UI CLASS
 class UI {
   addGrocery(itemName){
-
+    // create variable to grab the grocery-list
+    const list = document.getElementById('grocery-list');
+    // create table row
+    const row = document.createElement('tr');
+    // insert columns
+    row.innerHTML = `
+    <td>${grocery.groceryItem}</td>
+    <td>${grocery.quantity}</td>
+    <td>${grocery.perishable}</td>
+    <td><a href="#" class="delete">X</a></td>
+    `;
+    list.appendChild(row);
   }
   showAlert(){
 
