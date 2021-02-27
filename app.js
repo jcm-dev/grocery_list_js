@@ -61,6 +61,8 @@ document.getElementById('grocery-form').addEventListener('submit', function(e){
 
     // show completion
     ui.showAlert('Book Added!', 'success');
+    // clear fields
+    ui.clearFields();
   }
 
   e.preventDefault();
