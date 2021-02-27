@@ -37,7 +37,7 @@ class UI {
   }
 }
 
-// EVENT LISTENERS ADD
+// EVENT LISTENER ADD
 document.getElementById('grocery-form').addEventListener('submit', function(e){
   // grab values from the form and assign them to
   // local variables
@@ -64,6 +64,21 @@ document.getElementById('grocery-form').addEventListener('submit', function(e){
     // clear fields
     ui.clearFields();
   }
+
+  e.preventDefault();
+});
+
+// EVENT LISTENER DELETE
+document.getElementById('grocery-list').addEventListener('click', function(e){
+
+  // instantiate ui
+  const ui = new UI();
+
+  // delete book
+  ui.deleteGrocery(e.target);
+
+  // show alert
+  ui.showAlert('Grocery Removed', 'success');
 
   e.preventDefault();
 });
