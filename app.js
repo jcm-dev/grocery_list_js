@@ -25,10 +25,16 @@ class UI {
     console.log(row);
   }
   showAlert(){
-
+    
   }
   deleteGrocery(target){
-
+    // test if the target clicked
+    // contains the delete class and if so
+    // traverse the UI to delete the targets parents
+    // parent which is the whole grocey item
+    if(target.className === 'delete'){
+      target.parentElement.parentElement.remove();
+    }
   }
   clearFields(){
     document.getElementById('grocery-item').value = '';
@@ -73,10 +79,9 @@ document.getElementById('grocery-list').addEventListener('click', function(e){
 
   // instantiate ui
   const ui = new UI();
-
-  // delete book
+  // within the ui class call the deleteGrocery method and
+  // pass it the target clicked
   ui.deleteGrocery(e.target);
-
   // show alert
   ui.showAlert('Grocery Removed', 'success');
 
