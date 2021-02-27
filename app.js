@@ -33,7 +33,7 @@ class UI {
   clearFields(){
     document.getElementById('grocery-item').value = '';
     document.getElementById('quantity').value = '';
-    document.getElementById('perishable');
+    document.getElementById('perishable').value;
   }
 }
 
