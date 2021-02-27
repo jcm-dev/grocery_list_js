@@ -9,7 +9,7 @@ class Grocery {
 
 // UI CLASS
 class UI {
-  addGrocery(itemName){
+  addGrocery(grocery){
     // create variable to grab the grocery-list
     const list = document.getElementById('grocery-list');
     // create table row
@@ -22,6 +22,7 @@ class UI {
     <td><a href="#" class="delete">X</a></td>
     `;
     list.appendChild(row);
+    console.log(row);
   }
   showAlert(){
 
