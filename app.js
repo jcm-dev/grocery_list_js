@@ -6,3 +6,19 @@ class Grocery {
     this.perishable = perishable;
   }
 }
+
+// UI CLASS
+class UI {
+  addGroceryToList(itemName){
+
+  }
+  showAlert(){
+
+  }
+  deleteGroceryItem(target){
+
+  }
+  clearFields(){
+    
+  }
+}
