@@ -79,13 +79,16 @@ class Store {
   static addGrocery(grocery){
 
     const groceryItem = Store.getGrocery();
-    grocery.push(grocery);
+    groceryItem.push(grocery);
     localStorage.setItem('grocery', JSON.stringify(groceryItem));
   }
   static removeGrocery(something){
 
   }
 }
+
+// DOM LOAD EVENT
+document.addEventListener('DOMContentLoaded', Store.displayGrocery());
 
 // EVENT LISTENER ADD
 document.getElementById('grocery-form').addEventListener('submit', function(e){
@@ -108,6 +111,9 @@ document.getElementById('grocery-form').addEventListener('submit', function(e){
   } else {
     // add grocery to list
     ui.addGrocery(grocery);
+
+    // add to local storage
+    Store.addGrocery(grocery);
 
     // show completion
     ui.showAlert('Grocery Added!', 'success');
