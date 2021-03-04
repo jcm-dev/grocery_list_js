@@ -24,8 +24,26 @@ class UI {
     list.appendChild(row);
     console.log(row);
   }
-  showAlert(){
-    
+  showAlert(message, className){
+    // create div to hold the alert
+    const div = document.createElement('div');
+    // add the alert class to the div
+    div.className = `alert ${className}`;
+    // create a text node and fill it with the passed
+    // message and append this to the div
+    div.appendChild(document.createTextNode(message));
+    // grab the parent element and the form element
+    // to insert the alert div between
+    const container = document.querySelector('.container'),
+          form = document.querySelector('#grocery-form');
+    // insert the alert div by grabbing the container,
+    // and within the container pass the div in
+    // before the form
+    container.insertBefore(div, form);
+    // remove message aftr 3 seconds
+    setTimeout(function(){
+      document.querySelector('.alert').remove();
+    }, 3000);
   }
   deleteGrocery(target){
     // test if the target clicked
@@ -40,6 +58,22 @@ class UI {
     document.getElementById('grocery-item').value = '';
     document.getElementById('quantity').value = '';
     document.getElementById('perishable').value;
+  }
+}
+
+// LOCAL STORAGE CLASS
+class Store {
+  static getGrocery(){
+
+  }
+  static displayGrocery(){
+
+  }
+  static addGrocery(grocery){
+
+  }
+  static removeGrocery(something){
+    
   }
 }
 
@@ -66,7 +100,7 @@ document.getElementById('grocery-form').addEventListener('submit', function(e){
     ui.addGrocery(grocery);
 
     // show completion
-    ui.showAlert('Book Added!', 'success');
+    ui.showAlert('Grocery Added!', 'success');
     // clear fields
     ui.clearFields();
   }
