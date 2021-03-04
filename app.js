@@ -64,7 +64,11 @@ class UI {
 // LOCAL STORAGE CLASS
 class Store {
   static getGrocery(){
-
+    // create local variable to hold each
+    // grocery item, then test if localStorage contains
+    // a groceryItem array, if not set to empty array
+    // if so then parse the groceryItem string array into
+    // into a useable object array
     let grocery;
     if (localStorage.getItem('grocery') === null){
       grocery = [];
@@ -77,7 +81,12 @@ class Store {
 
   }
   static addGrocery(grocery){
-
+    // create local groceryItem variable
+    // and call the getGrocery method and assign
+    // the results to groceryitem and then push
+    // the new groceryItem from the parameter
+    // to the groceryItem object array and parse
+    // back to string and add to local storage
     const groceryItem = Store.getGrocery();
     groceryItem.push(grocery);
     localStorage.setItem('grocery', JSON.stringify(groceryItem));
