@@ -100,8 +100,16 @@ class Store {
     groceryItem.push(grocery);
     localStorage.setItem('grocery', JSON.stringify(groceryItem));
   }
-  static removeGrocery(something){
+  static removeGrocery(groceryName){
+    
+    const groceryItems = Store.getGrocery();
 
+    groceryItems.forEach(function(grocery, index){
+      if (grocery.groceryItem === groceryName){
+        groceryItems.splice(index, 1);
+      }
+    });
+    localStorage.setItem('grocery', JSON.stringify(groceryItems));
   }
 }
 
@@ -150,8 +158,11 @@ document.getElementById('grocery-list').addEventListener('click', function(e){
   // within the ui class call the deleteGrocery method and
   // pass it the target clicked
   ui.deleteGrocery(e.target);
+
+  // remove from local storage
+  Store.removeGrocery(e.target.parentElement.parentElement.firstElementChild.textContent);
   // show alert
   ui.showAlert('Grocery Removed', 'success');
-
+  
   e.preventDefault();
 });
