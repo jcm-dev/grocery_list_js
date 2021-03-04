@@ -22,7 +22,6 @@ class UI {
     <td><a href="#" class="delete">X</a></td>
     `;
     list.appendChild(row);
-    console.log(row);
   }
   showAlert(message, className){
     // create div to hold the alert
@@ -78,7 +77,17 @@ class Store {
     return grocery;
   }
   static displayGrocery(){
+    // create local variable, call the
+    // getGrocery Store method and store the
+    // results in the variable
+    const grocery = Store.getGrocery();
+    // loop through each item in grocery and
+    // add it to the UI
+    grocery.forEach(function(groceryItem){
+      const ui = new UI;
 
+      ui.addGrocery(groceryItem);
+    });
   }
   static addGrocery(grocery){
     // create local groceryItem variable
