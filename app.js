@@ -65,15 +65,25 @@ class UI {
 class Store {
   static getGrocery(){
 
+    let grocery;
+    if (localStorage.getItem('grocery') === null){
+      grocery = [];
+    } else {
+      grocery = JSON.parse(localStorage.getItem('grocery'));
+    }
+    return grocery;
   }
   static displayGrocery(){
 
   }
   static addGrocery(grocery){
 
+    const groceryItem = Store.getGrocery();
+    grocery.push(grocery);
+    localStorage.setItem('grocery', JSON.stringify(groceryItem));
   }
   static removeGrocery(something){
-    
+
   }
 }
 
